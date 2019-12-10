@@ -1,6 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+
+Router.onRouteChangeStart = () => {
+  NProgress.start()
+  console.log('onRouteChangeStart triggered')
+}
+Router.onRouteChangeComplete = () => {
+  NProgress.done()
+  console.log('onRouteChangeComplete triggered')
+}
+Router.onRouteChangeError = () => {
+  NProgress.done()
+  console.log('onRouteChangeError triggered')
+}
 
 import Nav from './Nav'
 
